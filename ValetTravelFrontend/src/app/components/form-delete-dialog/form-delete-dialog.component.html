@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="rounded-dialog">
+  <h2 class="text-center mb-4">Delete {{this.data.location}}</h2>
+    <div class="form-group">
+      <p>Are you sure you want to delete {{this.data.location}}? </p>
+    </div>
+    <button type="button" class="btn btn-primary btn-block" (click)="proceedDelete()">Proceed</button>
+    <button type="button" class="btn btn-primary btn-block" (click)="abortDelete()">Abort</button>
+</div>

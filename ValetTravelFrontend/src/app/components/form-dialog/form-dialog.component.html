@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="rounded-dialog">
+  <h2 class="text-center mb-4">{{title}}</h2>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" formControlName="location" id="location" class="form-control" placeholder="Enter location">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea formControlName="description" id="description" class="form-control" rows="3" placeholder="Enter description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" formControlName="price" id="price" class="form-control" placeholder="Enter price">
+    </div>
+
+    <div class="form-group">
+      <label for="available_seats">Available Seats</label>
+      <input type="number" formControlName="available_seats" id="available_seats" class="form-control" placeholder="Enter available seats">
+    </div>
+
+    <div class="form-group">
+      <label for="offer_percent">Offer Percent</label>
+      <input type="number" formControlName="offer_percent" id="offer_percent" class="form-control" placeholder="Enter offer percent">
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+  </form>
+</div>

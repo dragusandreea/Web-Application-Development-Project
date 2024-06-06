@@ -1,0 +1,27 @@
+.rounded-dialog,
+.rounded-dialog .form-control,
+.rounded-dialog .form-control:focus {
+  border-radius: 15px; /* Adjust this value as needed */
+}
+
+/* Removes the default focus glow and replaces it with a more subtle one that fits the rounded style */
+.rounded-dialog .form-control:focus {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+/* Additional styling for the submit button */
+.btn-primary {
+  border-radius: 15px; /* Adjust this value to match the inputs if needed */
+  /* Other styles remain the same */
+}
+
+/* Add padding to the form to prevent inputs from touching the border */
+.container {
+  padding: 20px;
+  /* Other styles remain the same */
+}
+
+/* Ensure that the modal content also gets the rounded borders if it does not apply from .rounded-dialog */
+.custom-dialog-container .mat-dialog-container {
+  border-radius: 15px; /* Same as the border-radius you're using for .rounded-dialog */
+}

@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="ThemesLay">
+  <title>RoundTours - Tours and Travel Landing Page</title>
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="80x80" href="assets2/images/favicon.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Main CSS -->
+  <link href="/assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+<!-- page content area -->
+<div class="pagewrap">
+  <div class="head-wrapper">
+    <!-- header section -->
+    <header class="header theme-bg-white">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg py-3 py-lg-0 px-0">
+          <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="Brand Logo"
+                                                         title="Brand Logo" class="img-fluid"></a>
+          <button class="navbar-toggler px-1 btn rounded-0" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                  aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto page-menu" id="nav">
+              <li class="nav-item"><a class="nav-link pe-5 ps-0 ps-lg-5" href="/home-page">Home</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle pe-5" href="/destinations-page" id="navbarDropdown" role="button"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                  Destinations
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/destinations-page#offers">Offers</a></li>
+                  <!-- Add other submenu items here if needed -->
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link pe-5" href="/contact-page">Contact</a></li>
+
+            </ul>
+            <ul class="navbar-nav page-menu mb-0 mb-lg-0">
+              <li class="input-group subs-form">
+                <input type="text" class="form-control border-1 " placeholder="Search by location"
+                       aria-label="Your Email" aria-describedby="button-addon2" [(ngModel)]="location">
+              </li>
+              <li class="input-group subs-form">
+                <button class="btn btn-search" type="button" id="button-addon22" (click)="search_by_location(location)">Search
+                </button>
+              </li>
+
+              <!-- user account  -->
+              <li class="nav-item dropdown my-auto">
+                <a href="#" class="nav-link dropdown-toggle p-0 user" id="navbarDropdown3"
+                   data-bs-toggle="dropdown" aria-expanded="false"><span
+                  class="d-inline-block p-2 theme-bg-primary rounded-circle lh-1"><i
+                  class="bi bi-person"></i></span></a>
+                <ul class="dropdown-menu dropdown-menu-end sub-menu"
+                    aria-labelledby="navbarDropdown3">
+                  <li><a class="dropdown-item" href="/login-page">Sign in</a></li>
+                  <li><a class="dropdown-item" href="/register-page">Register</a>
+                  </li>
+
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- search engine section-->
+    <div class="search-engine1">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-12 mb-5 text-center position-relative">
+            <h1 class="display-3 fw-bold mb-4 theme-text-white theme-text-shadow">
+              A Journey to Adventurous
+            </h1>
+            <p class="mb-0 theme-text-white">Discover amzaing places at exclusive deals</p>
+          </div>
+        </div>
+        <!-- search engine tabs -->
+        <div class="row mt-0 mt-lg-5">
+          <div class="col-12 col-lg-10 offset-lg-1 mb-5 text-center position-relative">
+            <!-- product main tab content -->
+            <div class="tab-content mt-3" id="myTabContent">
+              <!-- flight search tab -->
+              <div class="tab-pane fade show active" id="flight-tab-pane" role="tabpanel"
+                   aria-labelledby="flight-tab" tabindex="0">
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="pills-oneway" role="tabpanel"
+                       aria-labelledby="pills-oneway-tab" tabindex="0">
+                    <!-- one way search -->
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="search-pan row mx-0 theme-border-radius">
+
+                          <div class="col-12 col-lg-6 col-xl-3 ps-0 mb-2 mb-xl-0 pe-0 pe-lg-0 pe-xl-2 ">
+                            <label class="form-label" style="padding-left: 60px">Date</label>
+                            <mat-form-field class="form-control" style="padding-left: 60px">
+                              <mat-label>Enter a date range</mat-label>
+                              <mat-date-range-input [rangePicker]="picker" [min]="todayDate">
+                                <input matStartDate placeholder="Start date" [(ngModel)]="startDate"
+                                       (ngModelChange)="selectStartDate()" >
+                                <input matEndDate placeholder="End date" [(ngModel)]="endDate"
+                                       (ngModelChange)="selectEndDate()">
+                              </mat-date-range-input>
+                              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                              <mat-date-range-picker #picker></mat-date-range-picker>
+                            </mat-form-field>
+
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- recommended section -->
+<section class="recommended" id="search-results" *ngIf="location != ''&& location != null">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <h4 class="fs-2 fw-bold theme-text-secondary mb-0">Search results for: {{location}}</h4>
+      </div>
+    </div>
+    <!-- Recommended tours card -->
+    <div class="row mt-5">
+      <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0" *ngFor="let destination of destinationsByLocation">
+        <div class="card-wrap">
+          <div class="con-img-wrap m-auto">
+            <img src="{{getImgSrc(destination)}}"  class="img-fluid mx-auto d-block"
+                 alt="product picture">
+            <!--            <div class="offer-tag bg-warning">Best Deal</div>-->
+            <!--            <span class="wishlist-tag"><i class="bi bi-heart"></i></span>-->
+          </div>
+          <div class="con-wrap mt-4">
+            <h2 class="fs-6 mt-4 fw-bold text-truncate text-center">{{destination.location}}</h2>
+            <p class="mb-2 theme-text-accent-two small text-center">{{destination.description}}</p>
+            <p class="mb-0 theme-text-accent-one text-center">Available seats: {{destination.available_seats}}</p>
+            <p class="mb-0 theme-text-accent-one text-center">Starting from US${{destination.price}}/night</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- recommended section -->
+<section class="recommended" id="deals">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <h4 class="fs-2 fw-bold theme-text-secondary mb-0">Check all our destinations</h4>
+        <p class="mb-0 theme-text-accent-one">Choose your next destination below</p>
+
+      </div>
+      <button type="button" class="btn btn-search" style="float: right;" (click)="addNewDestination()" *ngIf="this.user_type == 'agent'">New destination</button>
+    </div>
+    <!-- Recommended tours card -->
+    <div class="row mt-5">
+      <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0" *ngFor="let destination of destinations">
+        <div class="card-wrap">
+          <div class="con-img-wrap m-auto">
+            <img src="{{getImgSrc(destination)}}"  class="img-fluid mx-auto d-block"
+                 alt="product picture">
+            <button type="button" class="button-tag-edit bg-primary" (click)="openDialog(destination)"   *ngIf="this.user_type == 'agent'">Edit</button>
+            <button type="button" class="button-tag-delete bg-danger" (click)="openDeleteDialog(destination)"   *ngIf="this.user_type == 'agent'">Delete</button>
+            <button type="button" class="button-tag-bookings bg-gradient" (click)="openBookingDialog(destination)"   *ngIf="this.user_type == 'agent'">Bookings</button>
+            <button type="button" class="button-tag-calendar bg-gradient" (click)="openCalendar(destination)"   *ngIf="this.user_type == 'agent'">Calendar</button>
+            <button type="button" class="button-tag-statistics bg-gradient" (click)="openStatistics(destination)"   *ngIf="this.user_type == 'agent'">Statistics</button>
+            <button type="button" class="button-tag-edit bg-primary" (click)="booking(destination)"   *ngIf="this.user_type == 'client' && startDate!=undefined&& endDate!=undefined ">Book</button>
+          </div>
+          <div class="con-wrap mt-4">
+            <h2 class="fs-6 mt-4 fw-bold text-truncate text-center">{{destination.location}}</h2>
+            <p class="mb-2 theme-text-accent-two small text-center">{{destination.description}}</p>
+            <p class="mb-0 theme-text-accent-one text-center">Available seats: {{destination.available_seats}}</p>
+            <p class="mb-0 theme-text-accent-one text-center">Starting from US${{destination.price}}/night</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- special offers section -->
+<section class="recommended" id="offers">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h4 class="fs-2 fw-bold theme-text-secondary mb-0">Special Offers</h4>
+        <p class="mb-0 theme-text-accent-one">These popular destinations have a lot to offer</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0" *ngFor="let offer of destinationsOffers">
+        <div class="card-wrap">
+          <div class="con-img-wrap m-auto">
+            <img src="{{getImgSrc(offer)}}" class="img-fluid mx-auto d-block"
+                 alt="product picture">
+            <div class="offer-tag bg-warning">Best Deal</div>
+          </div>
+          <div class="con-wrap mt-4">
+            <h2 class="fs-6 mt-4 fw-bold text-truncate text-center">{{offer.location}}</h2>
+            <p class="mb-2 theme-text-accent-two small text-center">{{offer.description}}</p>
+            <p class="mb-0 theme-text-accent-one text-center">Available seats: {{offer.available_seats}}</p>
+            <p class="mb-0 theme-text-accent-one text-center">Starting from US${{offer.price}}/night</p>
+            <p class="mb-0 theme-text-accent-one text-center">Reduced price: US${{offer.price - offer.offer_percent}}/night</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- wonderful experience -->
+<section class="experience">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <h4 class="fs-2 fw-bold theme-text-secondary mb-0"> Click play and let your journey begin</h4>
+        <p class="mb-0 theme-text-accent-one">Embark on a virtual adventure from the comfort of your home!</p>
+      </div>
+      <div class="col-12">
+        <div class="wrap">
+          <div class="row">
+
+            <div class="col-12 position-relative align-self-center">
+              <h4 class="display-4 theme-text-white mb-0 fw-bold text-center">Wonderful Travel
+                Experiences with<br>
+                Round Tours</h4>
+              <div class="group custom-button">
+                <div class="d-flex align-items-center">
+                  <a href="https://www.youtube.com/watch?v=Eo3E4GJMGZI"
+                     class="video-icon video-icon2 mr-30 ml-20 video_model">
+                    <i class="bi bi-play"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
+        <div class="d-flex align-items-center p-4 p-md-0">
+          <i class="bi bi-airplane fs-4 theme-text-primary"></i>
+          <h3 class="fs-2 mb-0 mx-3">4259</h3>
+          <p class="fs-4 mb-0 theme-text-accent-one">Flights</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
+        <div class="d-flex align-items-center p-4 p-md-0">
+          <i class="bi bi-hospital fs-4 theme-text-primary"></i>
+          <h3 class="fs-2 mb-0 mx-3">8289</h3>
+          <p class="fs-4 mb-0 theme-text-accent-one">Hotels</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
+        <div class="d-flex align-items-center p-4 p-md-0">
+          <i class="bi bi-award fs-4 theme-text-primary"></i>
+          <h3 class="fs-2 mb-0 mx-3">9789</h3>
+          <p class="fs-4 mb-0 theme-text-accent-one">Packages</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3 mb-3 mb-lg-0">
+        <div class="d-flex align-items-center p-4 p-md-0">
+          <i class="bi bi-star fs-4 theme-text-primary"></i>
+          <h3 class="fs-2 mb-0 mx-3">9999</h3>
+          <p class="fs-4 mb-0 theme-text-accent-one">Ratings</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- subscription section -->
+<section class="py-5 theme-bg-primary">
+  <div class="container">
+    <div class="row justify-between items-center">
+      <div class="col-12 col-lg-6">
+        <div class="d-flex  align-items-center">
+          <img src="assets/images/icons/subscribe-icon.png" alt="subscribe" class="img-fluid">
+          <div class="ms-3">
+            <h4 class="text-26 text-white fw-600">Your Travel Journey Starts Here</h4>
+            <p class="text-white">Sign up and we'll send the best deals to you</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-5 offset-lg-1 align-self-center">
+        <div class="input-group subs-form">
+          <input type="text" class="form-control border-0" placeholder="Your Email"
+                 aria-label="Your Email" aria-describedby="button-addon2">
+          <button class="btn btn-search" type="button" id="button-addon2">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- footer section-->
+<!-- js file -->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- index.html -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Scroll Top
+  $(document).ready(function () {
+    var ScrollTop = $(".scrollToTop");
+    $(window).on('scroll', function () {
+      if ($(this).scrollTop() < 500) {
+        ScrollTop.removeClass("active");
+      } else {
+        ScrollTop.addClass("active");
+      }
+    });
+    $('.scrollToTop').on('click', function () {
+      $('html, body').animate({
+        scrollTop: 0
+      }, 500);
+      return false;
+    });
+  });
+</script>
+</body>
+
+</html>

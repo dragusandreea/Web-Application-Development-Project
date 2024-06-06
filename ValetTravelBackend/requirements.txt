@@ -1,0 +1,9 @@
+python-dotenv~=1.0.1
+psycopg2-binary
+Flask-SQLAlchemy
+Flask-RESTful
+
+flask~=3.0.2
+marshmallow~=3.21.1
+SQLAlchemy~=2.0.28
+flask-cors

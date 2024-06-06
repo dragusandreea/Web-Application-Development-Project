@@ -1,0 +1,40 @@
+.custom-mat-form-field {
+  width: 100%; /* Ensure the width matches the container */
+}
+
+/* Optional: Adjust padding or margin if needed */
+.custom-mat-form-field .mat-form-field-wrapper {
+  padding: 0px; /* Example: Remove padding */
+}
+
+/* Apply this class to both the destination and date range mat-form-field containers */
+.custom-input-container .mat-form-field {
+  height: 48px; /* Or any specific size */
+  line-height: 48px; /* To align text vertically */
+}
+
+.custom-input-container .mat-form-field-flex {
+  border-radius: 4px; /* Match border-radius if there's any */
+}
+
+.custom-input-container .mat-form-field-underline {
+  display: none; /* Sometimes removing the underline helps visually */
+}
+
+.custom-input-container .mat-form-field-wrapper {
+  padding: 0; /* Remove padding to match sizes */
+}
+
+/* Consistent styling for both inputs */
+.custom-input-container input {
+  height: 100%; /* Full height to match container */
+  box-shadow: none; /* Remove box shadow if not needed */
+  border: 1px solid #ccc; /* Example border, match it with the design */
+  border-radius: 4px; /* Match border-radius */
+  font-size: 1rem; /* Match font size */
+}
+
+.higher-label-container label {
+  margin-top: -10px; /* Adjust the value as necessary */
+}
+
